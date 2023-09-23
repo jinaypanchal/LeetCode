@@ -16,7 +16,6 @@ class Solution:
         words = sorted(words, key = lambda x:len(x))
 
         n = len(words)
-
         if not words:
             return 0
         
