@@ -8,8 +8,7 @@ class Solution:
                 alice += 1
             elif colors[i-1] == 'B' and colors[i] == 'B' and colors[i+1] == 'B':
                 bob += 1
-        if alice <= bob:
-            return False
+ 
         
-        return True
+        return alice > bob
         
