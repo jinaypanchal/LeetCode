@@ -4,6 +4,9 @@ class Solution:
         memo = {}
         def f(idx, sc, maxi):
             res = 0
+            if sc > k:
+                return 0
+                
             if idx == n:
                 if sc == k:
                     return 1
