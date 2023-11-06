@@ -2,15 +2,26 @@ import heapq
 class SeatManager:
 
     def __init__(self, n: int):
-        self.pq = list(range(1,n+1))
+        self.pq = []
+        self.smallest = 1
+
+        # self.pq = list(range(1,n+1))
         # self.ls = [-1] * (n+1)
         # for i in range(1,n+1):
         #     ls.append(i)
         
 
     def reserve(self) -> int:
-        seat = heapq.heappop(self.pq)
+        if self.pq:
+            seat = heapq.heappop(self.pq)
+        else:
+            seat = self.smallest
+            self.smallest += 1
+
         return seat
+
+        # seat = heapq.heappop(self.pq)
+        # return seat
         # for i in range(1, len(self.ls) + 1):
         #     if self.ls[i] == -1:
         #         self.ls[i] = 1
@@ -18,7 +29,7 @@ class SeatManager:
 
         # return -1  
 
-    def unreserve(self, seatNumber: int) -> None:
+    def unreserve(self, seatNumber: int) -> None:        
         heapq.heappush(self.pq,seatNumber)
         # self.ls[seatNumber] = -1
         
